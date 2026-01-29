@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Installation
+
+```bash
+cargo install --path .   # Install to ~/.cargo/bin/kv
+cargo install douglance-kv  # Or install from crates.io
+```
+
 ## Build Commands
 
 ```bash
@@ -12,20 +19,16 @@ cargo run -- <args>      # Run with arguments (e.g., cargo run -- set foo bar)
 
 ## Testing
 
-No test suite yet. Manual testing:
+No test suite yet. Manual testing (after install):
 
 ```bash
-# Basic operations
-./target/release/kv set mykey "myvalue"
-./target/release/kv get mykey
-./target/release/kv list
-
-# Scoped operations (CWD-based)
-./target/release/kv set -g globalkey "value"  # Global scope
-./target/release/kv list --all                # Show all scopes
-
-# TTL
-./target/release/kv set temp "expires" --ttl 5s
+kv set mykey "myvalue"
+kv get mykey
+kv list
+kv set -g globalkey "value"  # Global scope
+kv list --all                # Show all scopes
+kv set temp "expires" --ttl 5s
+kv stats
 ```
 
 ## Architecture
